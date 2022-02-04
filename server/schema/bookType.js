@@ -1,0 +1,29 @@
+const graphql = require('graphql');
+const _ = require('lodash');
+const AuthorType = require('./authorType');
+const { authors } = require('./data');
+
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLID
+} = graphql;
+
+const BookType = new GraphQLObjectType({
+  name: 'Book',
+  fields: () =>({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    genre: { type: GraphQLString },
+    authorid: { type: GraphQLID },
+    author: {
+      type: AuthorType,
+      resolve (parent) {
+        let data = _.find(authors, { id: parent.authorid })
+        return data
+      }
+    }
+  })
+});
+
+module.exports = BookType;
