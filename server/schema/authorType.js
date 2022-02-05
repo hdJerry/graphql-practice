@@ -1,7 +1,8 @@
 const graphql = require('graphql');
 const _ = require('lodash');
 // const BookType = require('./bookType');
-const { books } = require('./data');
+// const { books } = require('./data');
+const Book = require('../models/book');
 
 const {
   GraphQLObjectType,
@@ -21,8 +22,10 @@ const AuthorType = new GraphQLObjectType({
     age: { type: GraphQLInt },
     books: {
       type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(require('./bookType')))),
-      resolve: async(parent) => {
-        const data = await _.filter(books, { authorid: parent.id});
+      resolve: async(parent, args) => {
+        const data = await Book.find({
+          authorid: parent.id
+        })
         return data;
       }
     }

@@ -37,7 +37,12 @@ const authors = [
   },
 ];
 
+const db = {
+  url: 'mongodb+srv://testing:test123@graphql-practice.7aihf.mongodb.net/graphql-practice?retryWrites=true&w=majority'
+}
+
 module.exports = {
   books,
-  authors
+  authors,
+  db
 }
