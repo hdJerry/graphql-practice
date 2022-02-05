@@ -20,3 +20,6 @@ nodemon app
 ```
 Note: You will also need to setup you mongoDB. You can also test with mongodbAtlas
 visit [MongoDB](https://mongodb.com/cloud/atlas)
+- return to the data file in the schema folder and substitute your mondoDB URI with mine.
+
+**Happy Coding**
