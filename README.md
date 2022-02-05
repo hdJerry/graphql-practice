@@ -19,4 +19,4 @@ npm install nodemon -g
 nodemon app
 ```
 Note: You will also need to setup you mongoDB. You can also test with mongodbAtlas
-visis [MongoDB](https://mongodb.com/cloud/atlas)
+visit [MongoDB](https://mongodb.com/cloud/atlas)
